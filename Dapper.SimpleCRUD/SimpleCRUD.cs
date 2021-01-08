@@ -1029,7 +1029,7 @@ namespace Dapper
                 var columnName = Encapsulate(propertyInfo.Name);
 
                 var columnattr = propertyInfo.GetCustomAttributes(true).SingleOrDefault(attr => attr.GetType().Name == typeof(ColumnAttribute).Name) as dynamic;
-                if (columnattr != null)
+                if (columnattr != null && columnattr.Name != null)
                 {
                     columnName = Encapsulate(columnattr.Name);
                     if (Debugger.IsAttached)
